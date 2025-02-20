@@ -1,0 +1,53 @@
+ body {
+    background-color: rgb(200, 241, 241);
+    color: blue;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.bird {
+    position: fixed;
+    top: 50px;
+    height: 200px;
+    width: 200px;
+    left: 0;
+    width: 150px;
+    transition: transform 1.3s linear;
+    animation: bird;
+
+    /* Smooth movement */
+}
+
+
+
+.content {
+    margin-top: 100px;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+    color: black;
+}
+
+
+p {
+    font-size: 20px;
+    width: 60%;
+}
+
+
+
+
+
+
+
+
+
+
+

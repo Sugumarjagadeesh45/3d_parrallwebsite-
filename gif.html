@@ -1,0 +1,84 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="gif.css">
+</head>
+<body style="background-color: rgb(200, 241, 241);color: blue;position: relative;">
+
+
+
+    <img src="./hummingbird-12098_256.gif" id="bird" class="bird">
+    <div style="display: flex;"  id="bird1">
+        <h1 style="font-size: 200px;margin-top: -50px;"><img src="./1.png" style="height: 250px;width: 250px;"></h1>
+        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam earum vitae inventore itaque, voluptas ut nostrum distinctio perspiciatis natus, quaerat fuga, labore atque reprehenderit. Animi, dig</P></div>
+    </div>
+        <div style="display: flex;"  id="bird2">
+        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam earum vitae inventore itaque, voluptas ut nostrum distinctio perspiciatis natus, quaerat fuga, labore atque reprehenderit. Animi, dig</P></div>
+        <h1 style="font-size: 200px;margin-top: -50px;margin-right: 50px;"><img src="./2...png" style="height: 250px;width: 250px;"></h1>
+    </div>
+        <div style="display: flex;"  id="bird3">
+        <h1 style="font-size: 200px;margin-top: -50px;"><img src="./3.....png" style="height: 250px;width: 250px;"></h1>
+        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam earum vitae inventore itaque, voluptas ut nostrum distinctio perspiciatis natus, quaerat fuga, labore atque reprehenderit. Animi, dig</P></div>
+    </div>
+        <div style="display: flex;"  id="bird4">
+        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam earum vitae inventore itaque, voluptas ut nostrum distinctio perspiciatis natus, quaerat fuga, labore atque reprehenderit. Animi, dig</P></div>
+        <h1 style="font-size: 200px;margin-top: -50px;"><img src="./5.....png" style="height: 250px;width: 250px;"></h1>
+    </div>
+        <div style="display: flex;"  id="bird5">
+        <h1 style="font-size: 200px;margin-top: -50px;"><img src="./5.....png" style="height: 250px;width: 250px;"></h1>
+        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam earum vitae inventore itaque, voluptas ut nostrum distinctio perspiciatis natus, quaerat fuga, labore atque reprehenderit. Animi, dig</P></div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+    const bird = document.getElementById("bird");
+    const sections = document.querySelectorAll("[id^='bird']");
+
+    window.addEventListener("scroll", () => {
+        let scrollY = window.scrollY;
+
+        sections.forEach((section, index) => {
+            const rect = section.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Check if the section is currently visible
+            if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) {
+                let progress = (windowHeight / 2 - rect.top) / rect.height;
+                let birdX = Math.min(Math.max(progress * 100, 0), 100);
+
+                // Odd sections → Left to Right
+                // Even sections → Right to Left (Bird Flips)
+                if (index % 2 === 0) {
+                    bird.style.transform = `translateX(${birdX}vw) scaleX(1)`; // Normal position
+                } else {
+                    bird.style.transform = `translateX(${100 - birdX}vw) scaleX(-1)`; // Flipped
+                }
+            }
+        });
+    });
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
