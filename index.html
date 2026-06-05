@@ -38,12 +38,12 @@
     <script>
     const bird = document.getElementById("bird");
     const sections = document.querySelectorAll("[id^='bird']");
-    let lastBirdX = 0;
-    let lastBirdFlip = false;
+    
+    // Request animation frame for ultra smooth animation
+    let ticking = false;
+    let scrollY = 0;
 
-    window.addEventListener("scroll", () => {
-        let scrollY = window.scrollY;
-
+    function updateBirdPosition() {
         sections.forEach((section, index) => {
             const rect = section.getBoundingClientRect();
             const windowHeight = window.innerHeight;
@@ -56,12 +56,20 @@
                 // Odd sections → Left to Right
                 // Even sections → Right to Left (Bird Flips)
                 if (index % 2 === 0) {
-                    bird.style.transform = `translateX(${birdX}vw) scaleX(1)`; // Normal position
+                    bird.style.transform = `translateX(${birdX}vw) scaleX(1) translateZ(0)`; // Normal position
                 } else {
-                    bird.style.transform = `translateX(${100 - birdX}vw) scaleX(-1)`; // Flipped
+                    bird.style.transform = `translateX(${100 - birdX}vw) scaleX(-1) translateZ(0)`; // Flipped
                 }
             }
         });
+        ticking = false;
+    }
+
+    window.addEventListener("scroll", () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateBirdPosition);
+            ticking = true;
+        }
     }, { passive: true });
 
 
