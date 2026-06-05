@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,29 +13,24 @@
     <img src="./hummingbird-12098_256.gif" id="bird" class="bird">
     <div style="display: flex;"  id="bird1">
         <h1 style="font-size: 200px;margin-top: -50px;"><img src="./1.png" style="height: 250px;width: 250px;"></h1>
-        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam earum vitae inventore itaque, voluptas ut nostrum distinctio perspiciatis natus, quaerat fuga, labore atque reprehenderit. Animi, dig</P></div>
+        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam ea[...]
     </div>
         <div style="display: flex;"  id="bird2">
-        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam earum vitae inventore itaque, voluptas ut nostrum distinctio perspiciatis natus, quaerat fuga, labore atque reprehenderit. Animi, dig</P></div>
+        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam ea[...]
         <h1 style="font-size: 200px;margin-top: -50px;margin-right: 50px;"><img src="./2...png" style="height: 250px;width: 250px;"></h1>
     </div>
         <div style="display: flex;"  id="bird3">
         <h1 style="font-size: 200px;margin-top: -50px;"><img src="./3.....png" style="height: 250px;width: 250px;"></h1>
-        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam earum vitae inventore itaque, voluptas ut nostrum distinctio perspiciatis natus, quaerat fuga, labore atque reprehenderit. Animi, dig</P></div>
+        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam ea[...]
     </div>
         <div style="display: flex;"  id="bird4">
-        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam earum vitae inventore itaque, voluptas ut nostrum distinctio perspiciatis natus, quaerat fuga, labore atque reprehenderit. Animi, dig</P></div>
+        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam ea[...]
         <h1 style="font-size: 200px;margin-top: -50px;"><img src="./5.....png" style="height: 250px;width: 250px;"></h1>
     </div>
         <div style="display: flex;"  id="bird5">
         <h1 style="font-size: 200px;margin-top: -50px;"><img src="./5.....png" style="height: 250px;width: 250px;"></h1>
-        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam earum vitae inventore itaque, voluptas ut nostrum distinctio perspiciatis natus, quaerat fuga, labore atque reprehenderit. Animi, dig</P></div>
+        <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam ea[...]
     </div>
-
-
-
-
-
 
 
 
@@ -43,6 +38,8 @@
     <script>
     const bird = document.getElementById("bird");
     const sections = document.querySelectorAll("[id^='bird']");
+    let lastBirdX = 0;
+    let lastBirdFlip = false;
 
     window.addEventListener("scroll", () => {
         let scrollY = window.scrollY;
@@ -65,20 +62,10 @@
                 }
             }
         });
-    });
+    }, { passive: true });
 
 
 
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
