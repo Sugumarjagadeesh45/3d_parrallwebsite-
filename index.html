@@ -8,6 +8,8 @@
 </head>
 <body style="background-color: rgb(200, 241, 241);color: blue;position: relative;">
 
+
+
     <img src="./hummingbird-12098_256.gif" id="bird" class="bird">
     <div style="display: flex;"  id="bird1">
         <h1 style="font-size: 200px;margin-top: -50px;"><img src="./1.png" style="height: 250px;width: 250px;"></h1>
@@ -30,60 +32,38 @@
         <div style="display: grid;color: black;"><h1>LOREM IOSUM DOLOR SIT</h1><P style="margin-top: -100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam reiciendis quisquam ea[...]
     </div>
 
+
+
+
     <script>
     const bird = document.getElementById("bird");
     const sections = document.querySelectorAll("[id^='bird']");
-    
-    let currentBirdX = 0;
-    let targetBirdX = 0;
-    let currentFlip = 1;
-    let targetFlip = 1;
-    let animationFrameId = null;
 
-    // Smooth easing function
-    function easeInOutQuad(t) {
-        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-    }
-
-    // Smooth animation loop
-    function animateBird() {
-        // Smoothly interpolate bird position
-        currentBirdX += (targetBirdX - currentBirdX) * 0.15; // Smooth easing factor
-        currentFlip += (targetFlip - currentFlip) * 0.15;
-
-        bird.style.transform = `translateX(${currentBirdX}vw) scaleX(${currentFlip}) translateZ(0)`;
-        
-        animationFrameId = requestAnimationFrame(animateBird);
-    }
-
-    // Start animation loop
-    animateBird();
-
-    // Update target position on scroll (throttled)
-    let lastScrollTime = 0;
     window.addEventListener("scroll", () => {
-        const currentTime = Date.now();
-        if (currentTime - lastScrollTime < 16) return; // ~60fps throttle
-        lastScrollTime = currentTime;
+        let scrollY = window.scrollY;
 
         sections.forEach((section, index) => {
             const rect = section.getBoundingClientRect();
             const windowHeight = window.innerHeight;
 
+            // Check if the section is currently visible
             if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) {
                 let progress = (windowHeight / 2 - rect.top) / rect.height;
                 let birdX = Math.min(Math.max(progress * 100, 0), 100);
 
+                // Odd sections → Left to Right
+                // Even sections → Right to Left (Bird Flips)
                 if (index % 2 === 0) {
-                    targetBirdX = birdX;
-                    targetFlip = 1;
+                    bird.style.transform = `translateX(${birdX}vw) scaleX(1)`; // Normal position
                 } else {
-                    targetBirdX = 100 - birdX;
-                    targetFlip = -1;
+                    bird.style.transform = `translateX(${100 - birdX}vw) scaleX(-1)`; // Flipped
                 }
             }
         });
-    }, { passive: true });
+    });
+
+
+
     </script>
 </body>
 </html>
